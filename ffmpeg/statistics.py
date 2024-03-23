@@ -16,7 +16,7 @@ _pattern = re.compile(r"(frame|fps|size|time|bitrate|speed)\s*\=\s*(\S+)")
 _field_factory = {
     "frame": int,
     "fps": float,
-    "size": lambda item: int(item.replace("kB", "")) * 1024,
+    "size": lambda item: int(item.replace("kB", "").replace("KiB", "")) * 1024,
     "time": parse_time,
     "bitrate": lambda item: float(item.replace("kbits/s", "")),
     "speed": lambda item: float(item.replace("x", "")),
